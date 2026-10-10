@@ -772,17 +772,18 @@ function inTime(p, deadline) {
 }
 
 async function usage(req, env) {
+  const parsed = await readJSON(req);
   try {
-    return await usageCount(req, env, Date.now() + USAGE_DB_MS);
+    return await usageCount(req, env, parsed, Date.now() + USAGE_DB_MS);
   } catch (e) {
     return json({ error: 'degraded' }, 503);
   }
 }
 
-async function usageCount(req, env, deadline) {
+async function usageCount(req, env, parsed, deadline) {
   const who = await inTime(whoami(req, env.DB), deadline);
   if (who === null) return json({ error: 'login' }, 401); // กุญแจเข้าระบบถูกยกเลิก ให้โปรแกรมเข้าสู่ระบบใหม่
-  const { body: b, error } = await readJSON(req);
+  const { body: b, error } = parsed;
   if (error) return error;
   const m = String((b && b.m) || '');
   const inst = String((b && b.i) || '');
