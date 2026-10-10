@@ -47,8 +47,14 @@ let tableReady = false;
 
 async function ensureTable(db) {
   if (tableReady) return;
-  if (typeof db.batch === 'function') await db.batch(TABLES.map((sql) => db.prepare(sql)));
-  else for (const sql of TABLES) await db.prepare(sql).run();
+  let done = false;
+  if (typeof db.batch === 'function') {
+    try {
+      await db.batch(TABLES.map((sql) => db.prepare(sql)));
+      done = true;
+    } catch (e) { /* ลองทีละคำสั่ง */ }
+  }
+  if (!done) for (const sql of TABLES) await db.prepare(sql).run();
   tableReady = true;
 }
 
