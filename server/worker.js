@@ -47,7 +47,8 @@ let tableReady = false;
 
 async function ensureTable(db) {
   if (tableReady) return;
-  for (const sql of TABLES) await db.prepare(sql).run();
+  if (typeof db.batch === 'function') await db.batch(TABLES.map((sql) => db.prepare(sql)));
+  else for (const sql of TABLES) await db.prepare(sql).run();
   tableReady = true;
 }
 
@@ -756,7 +757,7 @@ async function authRedeem(req, env) {
   return json({ token, account: account(u) });
 }
 
-const USAGE_DB_MS = 3000;
+const USAGE_DB_MS = 4500;
 class Degraded extends Error {}
 function inTime(p, deadline) {
   let t;
@@ -1660,7 +1661,7 @@ function dlTarget(env) {
 async function download(req, env, url) {
   const to = dlTarget(env);
   if (!to) return redirect('/?web=1#soon');
-  if (env.DB && !tooMany(req, 'dl')) {
+  if (env.DB && !isBot(req) && !tooMany(req, 'dl')) { // บอทค้นหาและตัวทำตัวอย่างลิงก์ (LINE, Facebook) ได้ไฟล์แต่ไม่นับ
     const src = srcOf(url) || (url.searchParams.has('from') ? 'other' : 'web');
     try {
       await withDB(env.DB, () => env.DB.prepare('INSERT INTO downloads (day, src, n) VALUES (?1, ?2, 1) ON CONFLICT (day, src) DO UPDATE SET n = n + 1')
@@ -1681,7 +1682,7 @@ function verifyTag(env) {
 }
 
 function robots(url) {
-  return new Response('User-agent: *\nAllow: /\nDisallow: /api/\nDisallow: /auth/\nDisallow: /admin\nDisallow: /check\nSitemap: ' + url.origin + '/sitemap.xml\n',
+  return new Response('User-agent: *\nAllow: /\nDisallow: /api/\nDisallow: /auth/\nDisallow: /admin\nDisallow: /check\nDisallow: /download\nDisallow: /buy\nSitemap: ' + url.origin + '/sitemap.xml\n',
     { headers: { 'content-type': 'text/plain; charset=utf-8', 'cache-control': 'public, max-age=86400' } });
 }
 
@@ -1697,7 +1698,7 @@ function ogImage() {
     { headers: { 'content-type': 'image/png', 'cache-control': 'public, max-age=86400' } });
 }
 
-async function handle(req, env) {
+async function handle(req, env, ctx) {
   const url = new URL(req.url);
   const path = url.pathname.replace(/\/+$/, '') || '/';
   const route = req.method + ' ' + path;
@@ -1719,7 +1720,9 @@ async function handle(req, env) {
   if (route === 'GET /robots.txt') return robots(url);
   if (route === 'GET /sitemap.xml') return sitemap(url);
   if (!env.DB) return path.startsWith('/auth/') && req.method === 'GET' ? page('เซิร์ฟเวอร์ยังไม่พร้อม', 'ยังไม่ได้ผูกฐานข้อมูล', 503) : json({ error: 'no_db' }, 503);
-  try { await prune(env.DB, Date.now()); } catch (e) { /* ลบไม่ได้รอบนี้ ไว้รอบหน้า */ }
+  const tidy = prune(env.DB, Date.now()).catch(() => {});
+  if (route !== 'POST /api/usage') await tidy;
+  else if (ctx && typeof ctx.waitUntil === 'function') ctx.waitUntil(tidy);
 
   if (route === 'GET /auth/start') {
     if (tooMany(req, 'start')) return page('กดเข้าสู่ระบบถี่เกินไป', 'รอสักครู่แล้วกดเข้าสู่ระบบในพูดพิมพ์อีกครั้ง', 429);
@@ -1755,9 +1758,9 @@ async function handle(req, env) {
 }
 
 export default {
-  async fetch(req, env) {
+  async fetch(req, env, ctx) {
     try {
-      return await handle(req, env);
+      return await handle(req, env, ctx);
     } catch (e) {
       const path = new URL(req.url).pathname;
       return path.startsWith('/auth/') && req.method === 'GET' ? page('เซิร์ฟเวอร์ขัดข้องชั่วคราว', 'รอสักครู่แล้วกดเข้าสู่ระบบในพูดพิมพ์อีกครั้ง', 503) : json({ error: 'server' }, 503);
