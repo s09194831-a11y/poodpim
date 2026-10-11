@@ -402,7 +402,7 @@ footer .status{flex-basis:100%;font:12px/1.5 ui-monospace,Consolas,monospace;opa
 <a class="btn btn-p" href="{{DL}}"><svg><use href="#dl"/></svg>ดาวน์โหลดฟรีสำหรับ Windows</a>
 <a class="btn btn-g" href="#how">ดูวิธีใช้</a>
 </div>
-<div class="fine"><span>ฟรี 2,500 คำทุกสัปดาห์</span><span>ไม่ต้องใช้บัตร</span><span>เสียงไม่ออกจากเครื่องคุณ</span></div>
+<div class="fine"><span>Windows 10 ขึ้นไป</span><span>ฟรี 2,500 คำทุกสัปดาห์</span><span>ไม่ต้องใช้บัตร</span><span>เสียงไม่ออกจากเครื่องคุณ</span></div>
 <p id="soon">ไฟล์ติดตั้งกำลังจะเปิดให้ดาวน์โหลดเร็วๆ นี้ กลับมาที่หน้านี้อีกครั้งนะครับ</p>
 <div class="stage" id="demo" aria-label="ตัวอย่างการใช้พูดพิมพ์">
 <div class="win">
@@ -490,10 +490,10 @@ footer .status{flex-basis:100%;font:12px/1.5 ui-monospace,Consolas,monospace;opa
 <section class="block" id="spec" style="padding-top:0"><div class="wrap center">
 <div class="kicker reveal">สเปคคอม</div>
 <h2 class="reveal">คอมแบบไหน <em>ใช้ได้</em></h2>
-<p class="sub reveal" style="margin-inline:auto">คอม Windows 10 หรือ 11 ที่เปิดเว็บใน Chrome ได้ไม่อืด ส่วนใหญ่ใช้ได้เลย</p>
+<p class="sub reveal" style="margin-inline:auto">คอม Windows 10 ขึ้นไป ที่เปิดเว็บใน Chrome ได้ไม่อืด ส่วนใหญ่ใช้ได้เลย</p>
 <div class="plans" style="text-align:left">
 <div class="plan reveal"><h3>ขั้นต่ำ</h3><p class="desc">ใช้ได้</p>
-<ul><li>Windows 10 หรือ 11 แบบ 64 บิต</li><li>ซีพียู 2 คอร์ขึ้นไป</li><li>แรม 4 GB</li><li>ที่ว่าง 600 MB ตอนติดตั้ง ติดตั้งเสร็จใช้ราว 200 MB</li><li>ไมค์อะไรก็ได้ ไมค์ในโน้ตบุ๊กก็ได้</li><li>ต่ออินเทอร์เน็ต เน็ตช้าก็ได้</li></ul></div>
+<ul><li>Windows 10 ขึ้นไป แบบ 64 บิต</li><li>ซีพียู 2 คอร์ขึ้นไป</li><li>แรม 4 GB</li><li>ที่ว่าง 600 MB ตอนติดตั้ง ติดตั้งเสร็จใช้ราว 200 MB</li><li>ไมค์อะไรก็ได้ ไมค์ในโน้ตบุ๊กก็ได้</li><li>ต่ออินเทอร์เน็ต เน็ตช้าก็ได้</li></ul></div>
 <div class="plan reveal"><h3>แนะนำ</h3><p class="desc">ลื่นที่สุด</p>
 <ul><li>ซีพียู 4 เธรดขึ้นไป เช่น Core i3 หรือ Ryzen 3 ขึ้นไป</li><li>แรม 8 GB ขึ้นไป</li><li>หูฟังมีไมค์ ถ้าที่นั่งเสียงดัง</li></ul></div>
 </div>
@@ -505,7 +505,7 @@ footer .status{flex-basis:100%;font:12px/1.5 ui-monospace,Consolas,monospace;opa
 <div class="faq" style="text-align:left">
 <details><summary>ใช้กับโปรแกรมไหนได้บ้าง</summary><p>ได้ทุกโปรแกรมที่มีช่องให้พิมพ์ ทั้ง LINE, Facebook, Claude, ChatGPT, Word, Excel, Gmail และทุกเว็บใน Chrome หรือ Edge</p></details>
 <details><summary>ต้องต่ออินเทอร์เน็ตไหม</summary><p>ต้องต่อเน็ตไว้ เพื่อเช็กบัญชีและนับจำนวนคำ แต่เสียงและข้อความถอดในเครื่องคุณ ไม่ถูกส่งขึ้นอินเทอร์เน็ต</p></details>
-<details><summary>คอมแบบไหนใช้ได้</summary><p>Windows 10 หรือ 11 แบบ 64 บิต แรม 4 GB ขึ้นไป ที่ว่าง 600 MB ตอนติดตั้ง เครื่องทั่วไปถอดเสียงพูด 10 วินาทีเสร็จในไม่ถึง 1 วินาที ตอนนี้ยังไม่มีรุ่น Mac และมือถือ ดูทั้งหมดที่ <a href="#spec">สเปคคอม</a></p></details>
+<details><summary>คอมแบบไหนใช้ได้</summary><p>Windows 10 ขึ้นไป แบบ 64 บิต แรม 4 GB ขึ้นไป ที่ว่าง 600 MB ตอนติดตั้ง เครื่องทั่วไปถอดเสียงพูด 10 วินาทีเสร็จในไม่ถึง 1 วินาที ตอนนี้ยังไม่มีรุ่น Mac และมือถือ ดูทั้งหมดที่ <a href="#spec">สเปคคอม</a></p></details>
 <details><summary>ติดตั้งแล้ว Windows ขึ้นหน้าจอสีฟ้าเตือน</summary><p>กด "ข้อมูลเพิ่มเติม" แล้วกด "เรียกใช้อยู่ดี" ขึ้นแบบนี้เพราะโปรแกรมยังไม่ได้ซื้อใบรับรองผู้พัฒนา ไม่ได้แปลว่ามีไวรัส</p></details>
 <details><summary>พูดไทยปนอังกฤษได้ไหม</summary><p>ได้ คำอังกฤษที่คนไทยพูดบ่อยกว่า 600 คำ เช่น meeting, deadline, Excel จะเขียนเป็นตัวอังกฤษให้เอง คำอื่นเพิ่มเองได้ในหน้าคลังคำ</p></details>
 <details><summary>ฟรีจริงไหม ต้องผูกบัตรไหม</summary><p>ฟรีจริง 2,500 คำทุกสัปดาห์ตลอดไป ไม่ต้องผูกบัตร แค่เข้าสู่ระบบด้วยบัญชี Google</p></details>
@@ -518,7 +518,7 @@ footer .status{flex-basis:100%;font:12px/1.5 ui-monospace,Consolas,monospace;opa
 <h2>ลองพูดดูสักประโยค</h2>
 <p class="sub" style="margin-inline:auto">ติดตั้งไม่ถึงนาที เข้าสู่ระบบด้วย Google แล้วพูดได้เลย</p>
 <div class="cta"><a class="btn btn-p" href="{{DL}}"><svg><use href="#dl"/></svg>ดาวน์โหลดฟรีสำหรับ Windows</a></div>
-<div class="fine"><span>รุ่น {{VERSION}}</span><span>{{SIZE}}</span><span>Windows 10 และ 11</span></div>
+<div class="fine"><span>รุ่น {{VERSION}}</span><span>{{SIZE}}</span><span>Windows 10 ขึ้นไป</span></div>
 </div>
 </div></section>
 </main>
