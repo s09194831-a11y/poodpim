@@ -122,7 +122,7 @@ function esc(s) {
 }
 
 function page(title, msg, status = 400) {
-  const html = '<!doctype html><html lang="th"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>พูดพิมพ์</title>' +
+  const html = '<!doctype html><html lang="th"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>TokType</title>' +
     '<style>:root{color-scheme:light dark}body{margin:0;min-height:100vh;display:grid;place-items:center;background:#faf9f5;color:#141413;font:16px/1.7 "Leelawadee UI","Segoe UI",system-ui,sans-serif;padding:0 16px}' +
     'main{max-width:420px;display:grid;gap:10px}h1{font-size:22px;margin:0}p{margin:0;color:#4a4945}' +
     '@media (prefers-color-scheme:dark){body{background:#262624;color:#faf9f5}p{color:#c8c6bd}}</style></head>' +
@@ -145,7 +145,7 @@ const SITE_CSS = ':root{--bg:#faf9f5;--fg:#141413;--mut:#5d5b55;--line:#e6e2d6;-
 function site(title, body) {
   const html = '<!doctype html><html lang="th"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">' +
     '<title>' + esc(title) + '</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anuphan:wght@600;700&family=IBM+Plex+Sans+Thai:wght@400;600&display=swap">' +
-    '<style>' + SITE_CSS + '</style></head><body><div class="w"><header><a href="/" style="display:flex;align-items:center;gap:12px;color:inherit;text-decoration:none">' + LOGO + '<b>พูดพิมพ์ <small>PoodPim</small></b></a>' +
+    '<style>' + SITE_CSS + '</style></head><body><div class="w"><header><a href="/" style="display:flex;align-items:center;gap:12px;color:inherit;text-decoration:none">' + LOGO + '<b>TokType</b></a>' +
     '<nav><a href="/">หน้าแรก</a><a href="/privacy">นโยบายความเป็นส่วนตัว</a><a href="/terms">ข้อกำหนด</a></nav></header>' + body + '</div></body></html>';
   return new Response(html, { headers: { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'no-store' } });
 }
@@ -160,7 +160,7 @@ function contact(env) {
   return e ? '<a href="mailto:' + esc(e) + '">' + esc(e) + '</a>' : '<b>(ผู้ดูแลยังไม่ได้ใส่อีเมลติดต่อ / contact email not set yet)</b>';
 }
 
-const DOWNLOAD = 'https://github.com/s09194831-a11y/poodpim/releases/latest/download/poodpim-windows.zip';
+const DOWNLOAD = 'https://github.com/s09194831-a11y/poodpim/releases/latest/download/toktype-windows.zip';
 function homePage(status, env, url) {
   const from = srcOf(url);
   const fill = {
@@ -181,19 +181,19 @@ const HOME = `<!doctype html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>พูดพิมพ์ พูดภาษาไทยแทนพิมพ์ ได้ทุกโปรแกรม</title>
-<meta name="description" content="พูดพิมพ์ โปรแกรมพิมพ์ด้วยเสียงภาษาไทยบน Windows กดคีย์ลัดค้างไว้ พูด ปล่อยมือ ข้อความขึ้นตรงที่คุณพิมพ์ ถอดเสียงในเครื่องคุณเอง ฟรี 2,500 คำทุกสัปดาห์">
+<title>TokType พูดภาษาไทยแทนพิมพ์ ได้ทุกโปรแกรม</title>
+<meta name="description" content="TokType โปรแกรมพิมพ์ด้วยเสียงภาษาไทยบน Windows กดคีย์ลัดค้างไว้ พูด ปล่อยมือ ข้อความขึ้นตรงที่คุณพิมพ์ ถอดเสียงในเครื่องคุณเอง ฟรี 2,500 คำทุกสัปดาห์">
 <link rel="canonical" href="{{ORIGIN}}/">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="พูดพิมพ์">
+<meta property="og:site_name" content="TokType">
 <meta property="og:locale" content="th_TH">
-<meta property="og:title" content="พูดพิมพ์ พูดภาษาไทยแทนพิมพ์ ได้ทุกโปรแกรม">
+<meta property="og:title" content="TokType พูดภาษาไทยแทนพิมพ์ ได้ทุกโปรแกรม">
 <meta property="og:description" content="พิมพ์ภาษาไทยด้วยเสียงบน Windows กดคีย์ลัดค้างไว้ พูด ปล่อย ข้อความขึ้นในทุกโปรแกรม ถอดเสียงในเครื่องคุณเอง ฟรี 2,500 คำทุกสัปดาห์">
 <meta property="og:url" content="{{ORIGIN}}/">
 <meta property="og:image" content="{{ORIGIN}}/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="พูดพิมพ์ พูดภาษาไทย ข้อความขึ้นเอง">
+<meta property="og:image:alt" content="TokType พูดภาษาไทย ข้อความขึ้นเอง">
 <meta name="twitter:card" content="summary_large_image">
 {{VERIFY}}
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect x='4' y='4' width='92' height='92' rx='23' fill='%23d97757'/%3E%3Cg fill='none' stroke='%23fff' stroke-width='9.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M36.5 30V61A7 7 0 0 0 50.5 61V44'/%3E%3Cpath d='M50.5 61A7 7 0 0 0 64.5 61V30'/%3E%3Cpath d='M22 45V56'/%3E%3Cpath d='M79 41V58'/%3E%3C/g%3E%3C/svg%3E">
@@ -389,7 +389,7 @@ footer .status{flex-basis:100%;font:12px/1.5 ui-monospace,Consolas,monospace;opa
 <symbol id="dl" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11"/><path d="M7 10.5l5 5 5-5"/><path d="M5 19.5h14"/></g></symbol>
 </defs></svg>
 <header class="top" id="top"><div class="wrap">
-<a class="logo" href="/"><svg><use href="#pp"/></svg>พูดพิมพ์</a>
+<a class="logo" href="/"><svg><use href="#pp"/></svg>TokType</a>
 <nav><a href="#how">วิธีใช้</a><a href="#smart">เข้าใจภาษาไทย</a><a href="#privacy">ความเป็นส่วนตัว</a><a href="#pricing">ราคา</a><a href="#faq">คำถาม</a></nav>
 <a class="btn btn-p btn-sm" href="{{DL}}"><svg><use href="#dl"/></svg>ดาวน์โหลดฟรี</a>
 </div></header>
@@ -404,7 +404,7 @@ footer .status{flex-basis:100%;font:12px/1.5 ui-monospace,Consolas,monospace;opa
 </div>
 <div class="fine"><span>Windows 10 ขึ้นไป</span><span>ฟรี 2,500 คำทุกสัปดาห์</span><span>ไม่ต้องใช้บัตร</span><span>เสียงไม่ออกจากเครื่องคุณ</span></div>
 <p id="soon">ไฟล์ติดตั้งกำลังจะเปิดให้ดาวน์โหลดเร็วๆ นี้ กลับมาที่หน้านี้อีกครั้งนะครับ</p>
-<div class="stage" id="demo" aria-label="ตัวอย่างการใช้พูดพิมพ์">
+<div class="stage" id="demo" aria-label="ตัวอย่างการใช้ TokType">
 <div class="win">
 <div class="win-bar"><span class="dots"><i></i><i></i><i></i></span><span class="av" id="av">ท</span><b id="wt">แชทกับทีม</b></div>
 <div class="msgs" id="msgs"></div>
@@ -414,7 +414,7 @@ footer .status{flex-basis:100%;font:12px/1.5 ui-monospace,Consolas,monospace;opa
 <div class="said">
 <div class="said-h">ที่คุณพูด</div>
 <div class="said-box"><p class="raw" id="raw"></p></div>
-<div class="said-h">พูดพิมพ์จัดให้</div>
+<div class="said-h">TokType จัดให้</div>
 <div class="tags" id="tags"></div>
 <div class="keyrow"><kbd id="key">Ctrl ขวา</kbd><span id="kt">กดค้างไว้แล้วพูด</span></div>
 </div>
@@ -442,7 +442,7 @@ footer .status{flex-basis:100%;font:12px/1.5 ui-monospace,Consolas,monospace;opa
 </div>
 <div class="meter reveal" id="meter">
 <div class="row"><div class="lab"><span>พิมพ์บนคีย์บอร์ด</span><b>~40 คำ/นาที</b></div><div class="bar"><i data-w="26"></i></div></div>
-<div class="row v"><div class="lab"><span>พูดกับพูดพิมพ์</span><b>~150 คำ/นาที</b></div><div class="bar"><i data-w="100"></i></div></div>
+<div class="row v"><div class="lab"><span>พูดกับ TokType</span><b>~150 คำ/นาที</b></div><div class="bar"><i data-w="100"></i></div></div>
 <p class="note">ตัวเลขเฉลี่ยทั่วไปของการพิมพ์และการพูด แต่ละคนเร็วไม่เท่ากัน</p>
 </div>
 </div></section>
@@ -464,7 +464,7 @@ footer .status{flex-basis:100%;font:12px/1.5 ui-monospace,Consolas,monospace;opa
 <div>
 <div class="kicker" style="color:#f4b393">ความเป็นส่วนตัว</div>
 <h2 style="margin-top:10px;font-size:clamp(30px,4.2vw,46px)">เสียงของคุณ<br>ไม่ออกจากเครื่องคุณ</h2>
-<p class="sub">พูดพิมพ์ถอดเสียงด้วยคอมของคุณเอง ไม่ส่งเสียงหรือข้อความขึ้นอินเทอร์เน็ต <a href="/privacy">อ่านนโยบายความเป็นส่วนตัว</a></p>
+<p class="sub">TokType ถอดเสียงด้วยคอมของคุณเอง ไม่ส่งเสียงหรือข้อความขึ้นอินเทอร์เน็ต <a href="/privacy">อ่านนโยบายความเป็นส่วนตัว</a></p>
 </div>
 <ul>
 <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8"/><path d="M12 16v4"/></svg></i><div><b>ถอดเสียงในคอมของคุณ</b><span>ตัวถอดเสียงภาษาไทยติดตั้งมากับโปรแกรม ไม่มีใครได้ยินเสียงคุณ</span></div></li>
@@ -509,7 +509,7 @@ footer .status{flex-basis:100%;font:12px/1.5 ui-monospace,Consolas,monospace;opa
 <details><summary>ติดตั้งแล้ว Windows ขึ้นหน้าจอสีฟ้าเตือน</summary><p>กด "ข้อมูลเพิ่มเติม" แล้วกด "เรียกใช้อยู่ดี" ขึ้นแบบนี้เพราะโปรแกรมยังไม่ได้ซื้อใบรับรองผู้พัฒนา ไม่ได้แปลว่ามีไวรัส</p></details>
 <details><summary>พูดไทยปนอังกฤษได้ไหม</summary><p>ได้ คำอังกฤษที่คนไทยพูดบ่อยกว่า 600 คำ เช่น meeting, deadline, Excel จะเขียนเป็นตัวอังกฤษให้เอง คำอื่นเพิ่มเองได้ในหน้าคลังคำ</p></details>
 <details><summary>ฟรีจริงไหม ต้องผูกบัตรไหม</summary><p>ฟรีจริง 2,500 คำทุกสัปดาห์ตลอดไป ไม่ต้องผูกบัตร แค่เข้าสู่ระบบด้วยบัญชี Google</p></details>
-<details><summary>ถอนการติดตั้งยังไง</summary><p>การตั้งค่า > แอป > แอปที่ติดตั้ง > พูดพิมพ์ (PoodPim) > ถอนการติดตั้ง ระบบจะลบทุกอย่างออกให้หมด</p></details>
+<details><summary>ถอนการติดตั้งยังไง</summary><p>การตั้งค่า > แอป > แอปที่ติดตั้ง > TokType (รุ่นก่อนหน้าชื่อ พูดพิมพ์) > ถอนการติดตั้ง ระบบจะลบทุกอย่างออกให้หมด</p></details>
 </div>
 </div></section>
 <section class="block" style="padding-top:0"><div class="wrap">
@@ -523,8 +523,8 @@ footer .status{flex-basis:100%;font:12px/1.5 ui-monospace,Consolas,monospace;opa
 </div></section>
 </main>
 <footer><div class="wrap">
-<a class="logo" href="/" style="font-size:18px"><svg style="width:28px;height:28px"><use href="#pp"/></svg>พูดพิมพ์</a>
-<span>© 2026 พูดพิมพ์</span>
+<a class="logo" href="/" style="font-size:18px"><svg style="width:28px;height:28px"><use href="#pp"/></svg>TokType</a>
+<span>© 2026 TokType</span>
 <nav><a href="/privacy">นโยบายความเป็นส่วนตัว</a><a href="/terms">ข้อกำหนดการใช้งาน</a><span>ติดต่อ: {{CONTACT}}</span></nav>
 <div class="status">สถานะเซิร์ฟเวอร์ / server status: {{STATUS}}</div>
 </div></footer>
@@ -590,8 +590,8 @@ run();
 
 function privacyPage(env) {
   const c = contact(env);
-  return site('นโยบายความเป็นส่วนตัว พูดพิมพ์', '<h1>นโยบายความเป็นส่วนตัว</h1><p>ปรับปรุงล่าสุด ' + UPDATED + '</p>' +
-    '<p>พูดพิมพ์ (PoodPim) เป็นโปรแกรมพิมพ์ภาษาไทยด้วยเสียงบน Windows หน้านี้อธิบายว่าเราเก็บข้อมูลอะไร เพื่ออะไร และคุณขอลบได้อย่างไร ตาม พ.ร.บ.คุ้มครองข้อมูลส่วนบุคคล พ.ศ. 2562 ติดต่อผู้ดูแล: ' + c + '</p>' +
+  return site('นโยบายความเป็นส่วนตัว TokType', '<h1>นโยบายความเป็นส่วนตัว</h1><p>ปรับปรุงล่าสุด ' + UPDATED + '</p>' +
+    '<p>TokType (ชื่อเดิม พูดพิมพ์) เป็นโปรแกรมพิมพ์ภาษาไทยด้วยเสียงบน Windows หน้านี้อธิบายว่าเราเก็บข้อมูลอะไร เพื่ออะไร และคุณขอลบได้อย่างไร ตาม พ.ร.บ.คุ้มครองข้อมูลส่วนบุคคล พ.ศ. 2562 ติดต่อผู้ดูแล: ' + c + '</p>' +
     '<h2>สิ่งที่เราไม่เก็บ</h2><ul><li>เสียงพูด ไฟล์เสียง และข้อความที่คุณพูดหรือพิมพ์ เสียงถูกถอดเป็นข้อความในเครื่องของคุณ ไม่ถูกส่งมาที่เซิร์ฟเวอร์</li>' +
     '<li>รหัสผ่าน Google ของคุณ เราไม่เห็นและไม่เก็บ เพราะคุณพิมพ์รหัสผ่านในหน้าของ Google เองโดยตรง</li><li>รายชื่อผู้ติดต่อ ไฟล์ หรือข้อมูลอื่นในบัญชี Google ของคุณ</li></ul>' +
     '<h2>สิ่งที่เราเก็บ</h2><ul><li><b>บัญชี:</b> เมื่อเข้าสู่ระบบด้วย Google เราได้รับชื่อ อีเมล และหมายเลขบัญชี Google ของคุณ (เลขประจำบัญชีที่ Google ให้ ไม่ใช่รหัสผ่าน)</li>' +
@@ -605,28 +605,28 @@ function privacyPage(env) {
     '<h2>เก็บที่ไหน นานเท่าไหร่</h2><p>ข้อมูลเก็บบน Cloudflare ซึ่งเป็นผู้ให้บริการเซิร์ฟเวอร์ของเรา Google ใช้ยืนยันตัวตนตอนเข้าสู่ระบบ และหน้าเว็บนี้โหลดฟอนต์จาก Google Fonts (เบราว์เซอร์ของคุณติดต่อ Google โดยตรงตามปกติของเว็บ) เราเก็บบัญชีและจำนวนคำไว้ตราบที่คุณยังใช้บริการ หรือจนกว่าคุณขอให้ลบ เซิร์ฟเวอร์ดูที่อยู่ IP เพื่อกันการเรียกถี่ผิดปกติ จำไว้ในหน่วยความจำไม่เกิน 10 นาที ไม่บันทึกลงฐานข้อมูล</p>' +
     '<h2>สิทธิ์ของคุณ</h2><ul><li>ขอดู แก้ไข หรือลบข้อมูลของคุณ ส่งอีเมลจากบัญชีที่ใช้เข้าสู่ระบบมาที่ ' + c + ' เราจะลบภายใน 30 วัน</li>' +
     '<li>ออกจากระบบในโปรแกรม (ตั้งค่า > บัญชี > ออกจากระบบ) กุญแจเข้าระบบในเซิร์ฟเวอร์จะถูกลบทันที</li>' +
-    '<li>ยกเลิกสิทธิ์ที่ให้พูดพิมพ์ได้ที่ <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a></li></ul>' +
-    '<p>การใช้ข้อมูลที่ได้รับจาก Google API ของพูดพิมพ์เป็นไปตาม Google API Services User Data Policy รวมถึงข้อกำหนด Limited Use</p>' +
+    '<li>ยกเลิกสิทธิ์ที่ให้ TokType ได้ที่ <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a></li></ul>' +
+    '<p>การใช้ข้อมูลที่ได้รับจาก Google API ของ TokType เป็นไปตาม Google API Services User Data Policy รวมถึงข้อกำหนด Limited Use</p>' +
     '<div class="en"><h2>Privacy policy (English)</h2><p>Last updated ' + UPDATED + '. Contact: ' + c + '.</p>' +
     '<p><b>We never collect</b> your voice, audio or the text you dictate or type. Speech is transcribed on your own computer and is not sent to our server. We never see or store your Google password (you type it on Google\'s own page), and we do not access your contacts, files or any other Google data.</p>' +
     '<p><b>We store</b>: your Google name, email address and Google account ID number (not your password) when you sign in; a hashed sign-in key; weekly word counts linked to a one-way hashed machine ID and install ID, with the time of the last update; temporary sign-in records that are deleted within one hour; and, if you buy Pro, the order number, amount, status and time. If you pay by PromptPay we see the transfer slip you send us (sender name, bank, time) and use it only to confirm or refund the payment;' + (slipOn(env) ? ' if you upload the slip on the payment page, the image is sent to SlipOK (a Thai slip-checking service) to check it with the bank, and we keep only the transfer reference number, amount and time, not the image;' : '') + ' card payments go through Stripe and we never see your card number.</p>' +
     '<p>We also count downloads of the app per day and per source (for example TikTok) as plain totals, not linked to any person, account or IP address.</p>' +
     '<p><b>We use it</b> to count the free weekly word allowance, keep that count when the app is reinstalled, combine counts for one account across computers, show your account name in the app, and link Pro purchases to your account. We do not sell, rent or share your data and do not use it for advertising.</p>' +
     '<p><b>Storage and retention</b>: data is stored on Cloudflare, our hosting provider. Google is used to confirm your identity, and these pages load fonts from Google Fonts (your browser contacts Google directly, as usual on the web). The server looks at IP addresses only to block abnormal request floods, keeps them in memory for at most 10 minutes and never writes them to the database. We keep your account and word counts while you use the service or until you ask us to delete them.</p>' +
-    '<p><b>Your choices</b>: email us from your sign-in address to see, correct or delete your data; we delete within 30 days. Signing out in the app deletes your sign-in key on the server. You can remove PoodPim\'s access at <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>.</p>' +
-    '<p>PoodPim\'s use of information received from Google APIs adheres to the Google API Services User Data Policy, including the Limited Use requirements.</p></div>');
+    '<p><b>Your choices</b>: email us from your sign-in address to see, correct or delete your data; we delete within 30 days. Signing out in the app deletes your sign-in key on the server. You can remove TokType\'s access at <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>.</p>' +
+    '<p>TokType\'s use of information received from Google APIs adheres to the Google API Services User Data Policy, including the Limited Use requirements.</p></div>');
 }
 
 function termsPage(env) {
-  return site('ข้อกำหนดการใช้งาน พูดพิมพ์', '<h1>ข้อกำหนดการใช้งาน</h1><p>ปรับปรุงล่าสุด ' + UPDATED + '</p><ul>' +
-    '<li>พูดพิมพ์ให้ใช้ฟรี 2,500 คำต่อสัปดาห์ต่อบัญชีและต่อเครื่อง ต้องต่ออินเทอร์เน็ตและเข้าสู่ระบบด้วย Google</li>' +
+  return site('ข้อกำหนดการใช้งาน TokType', '<h1>ข้อกำหนดการใช้งาน</h1><p>ปรับปรุงล่าสุด ' + UPDATED + '</p><ul>' +
+    '<li>TokType ให้ใช้ฟรี 2,500 คำต่อสัปดาห์ต่อบัญชีและต่อเครื่อง ต้องต่ออินเทอร์เน็ตและเข้าสู่ระบบด้วย Google</li>' +
     '<li>ห้ามแก้ไขโปรแกรมหรือปลอมข้อมูลเพื่อเลี่ยงการนับคำ เราระงับบัญชีที่ทำแบบนั้นได้</li>' +
     '<li><b>Pro:</b> จ่ายครั้งเดียว ' + PRICE.launch / 100 + ' บาทสำหรับ ' + PRICE.seats + ' คนแรก จากนั้น ' + PRICE.normal / 100 + ' บาท ไม่มีรายเดือน บัญชี Google ที่ซื้อพิมพ์ได้ไม่จำกัดคำตลอดอายุของบริการ จ่ายด้วยพร้อมเพย์ (หรือบัตรผ่าน Stripe เมื่อเปิดให้ใช้) ยอดโอนพร้อมเพย์บวกเศษไม่เกิน 99 สตางค์ไว้จับคู่การโอนกับรายการ ได้สิทธิ์เมื่อเรายืนยันว่าได้รับเงินแล้ว ' + (slipOn(env) ? '(ทันทีเมื่อสลิปผ่านการตรวจอัตโนมัติในหน้าจ่ายเงิน หรือโดยปกติภายใน 24 ชั่วโมง)' : 'โดยปกติภายใน 24 ชั่วโมง') + ' ไม่มีสินค้าจัดส่ง</li>' +
     '<li><b>คืนเงิน:</b> ขอคืนเงินเต็มจำนวนได้ภายใน 7 วันหลังซื้อ ส่งอีเมลจากบัญชีที่ซื้อมาที่ ' + contact(env) + ' เมื่อคืนเงินแล้วบัญชีนั้นกลับเป็นแบบฟรี</li>' +
     '<li>ข้อความที่ถอดจากเสียงอาจผิดได้ ตรวจก่อนส่งทุกครั้ง เราไม่รับผิดชอบความเสียหายจากข้อความที่ถอดผิด</li>' +
     '<li>บริการอาจหยุดชั่วคราวหรือเปลี่ยนแปลงได้ เราจะแจ้งในหน้านี้เมื่อข้อกำหนดเปลี่ยน</li>' +
     '<li>ติดต่อ: ' + contact(env) + ' อ่านเรื่องข้อมูลส่วนตัวใน<a href="/privacy">นโยบายความเป็นส่วนตัว</a></li></ul>' +
-    '<div class="en"><h2>Terms of use (English)</h2><p>PoodPim is free for 2,500 words per week per account and per computer and requires an internet connection and Google sign-in. ' +
+    '<div class="en"><h2>Terms of use (English)</h2><p>TokType (formerly PoodPim) is free for 2,500 words per week per account and per computer and requires an internet connection and Google sign-in. ' +
     'Do not modify the app or fake data to avoid the word count; we may suspend accounts that do. ' +
     'Pro is a one-time payment (' + PRICE.launch / 100 + ' THB for the first ' + PRICE.seats + ' buyers, then ' + PRICE.normal / 100 + ' THB, no subscription) that gives the Google account that bought it unlimited words for the life of the service. Pay by PromptPay (or by card through Stripe once available); PromptPay amounts include up to 99 satang extra so each transfer matches one order; Pro is unlocked once we confirm the payment, ' + (slipOn(env) ? 'right away when the slip check on the payment page passes, otherwise normally within 24 hours;' : 'normally within 24 hours;') + ' nothing is shipped. ' +
     'Refunds: email us from the buying account within 7 days of purchase for a full refund; the account then returns to the free plan. Transcriptions can be wrong, so check text before sending; we are not liable for losses caused by transcription errors. ' +
@@ -701,9 +701,9 @@ async function authStart(url, env) {
   const port = Number(url.searchParams.get('port'));
   const state = url.searchParams.get('state') || '';
   const challenge = url.searchParams.get('challenge') || '';
-  if (!p) return page('ยังเข้าสู่ระบบด้วยวิธีนี้ไม่ได้', 'ผู้ดูแลยังไม่ได้เปิดการเข้าสู่ระบบแบบนี้ กลับไปที่พูดพิมพ์แล้วลองอีกวิธี');
+  if (!p) return page('ยังเข้าสู่ระบบด้วยวิธีนี้ไม่ได้', 'ผู้ดูแลยังไม่ได้เปิดการเข้าสู่ระบบแบบนี้ กลับไปที่ TokType แล้วลองอีกวิธี');
   if (!Number.isInteger(port) || port < 1024 || port > 65535 || !/^[0-9a-f]{32}$/.test(state) || !/^[0-9a-f]{64}$/.test(challenge)) {
-    return page('ลิงก์ไม่ถูกต้อง', 'กลับไปที่พูดพิมพ์แล้วกดเข้าสู่ระบบอีกครั้ง');
+    return page('ลิงก์ไม่ถูกต้อง', 'กลับไปที่ TokType แล้วกดเข้าสู่ระบบอีกครั้ง');
   }
   const id = randomHex(16);
   const now = Date.now();
@@ -718,10 +718,10 @@ async function authStart(url, env) {
 async function authCallback(url, env, key) {
   const p = provider(env, key);
   const id = url.searchParams.get('state') || '';
-  if (!p || !/^[0-9a-f]{32}$/.test(id)) return page('ลิงก์ไม่ถูกต้อง', 'กลับไปที่พูดพิมพ์แล้วกดเข้าสู่ระบบอีกครั้ง');
+  if (!p || !/^[0-9a-f]{32}$/.test(id)) return page('ลิงก์ไม่ถูกต้อง', 'กลับไปที่ TokType แล้วกดเข้าสู่ระบบอีกครั้ง');
   const row = await withDB(env.DB, () => env.DB.prepare('SELECT * FROM logins WHERE id = ?1 AND provider = ?2 AND code IS NULL').bind(id, p.key).first());
   if (!row || Date.now() - row.created > LOGIN_TTL) {
-    return page('หมดเวลาเข้าสู่ระบบ', 'กลับไปที่พูดพิมพ์แล้วกดเข้าสู่ระบบอีกครั้ง');
+    return page('หมดเวลาเข้าสู่ระบบ', 'กลับไปที่ TokType แล้วกดเข้าสู่ระบบอีกครั้ง');
   }
   const back = (q) => redirect('http://127.0.0.1:' + row.port + '/auth/done?' + new URLSearchParams({ state: row.state, ...q }).toString());
   const fail = async (reason) => {
@@ -1142,14 +1142,14 @@ async function startOrder(env, url, who) {
         price_data: {
           currency: 'thb',
           unit_amount: amount,
-          product_data: { name: 'พูดพิมพ์ Pro (จ่ายครั้งเดียว ใช้ตลอด)', description: 'พิมพ์ด้วยเสียงไม่จำกัดคำ สำหรับบัญชี ' + maskEmail(who.email) },
+          product_data: { name: 'TokType Pro (จ่ายครั้งเดียว ใช้ตลอด)', description: 'พิมพ์ด้วยเสียงไม่จำกัดคำ สำหรับบัญชี ' + maskEmail(who.email) },
         },
       }],
       success_url: url.origin + '/paid?s={CHECKOUT_SESSION_ID}',
       cancel_url: url.origin + '/buy/cancel',
       expires_at: Math.floor((now + ORDER_TTL) / 1000),
       metadata: { app: 'poodpim', user: who.id },
-      payment_intent_data: { description: 'PoodPim Pro', metadata: { app: 'poodpim', user: who.id } },
+      payment_intent_data: { description: 'TokType Pro', metadata: { app: 'poodpim', user: who.id } },
     });
   } catch (e) {
     return { status: 502, body: { error: 'payment_down', detail: String(e && e.message).replace(/\b(sk|rk|pk)_(test|live)_[A-Za-z0-9*]+/g, '[key]').slice(0, 200) } };
@@ -1331,7 +1331,7 @@ const SLIP_MSG = {
   not_found: 'ธนาคารไม่พบรายการโอนนี้ ถ้าเพิ่งโอน รอ 1-2 นาทีแล้วลองใหม่',
   wait: 'สลิปจากธนาคารนี้ต้องรอสักครู่หลังโอน แล้วอัปโหลดอีกครั้ง',
   bank_down: 'ระบบธนาคารขัดข้องชั่วคราว ลองใหม่ในอีก 15 นาที',
-  wrong_receiver: 'สลิปนี้ไม่ได้โอนเข้าพร้อมเพย์ของพูดพิมพ์ ตรวจว่าสแกน QR ในหน้านี้',
+  wrong_receiver: 'สลิปนี้ไม่ได้โอนเข้าพร้อมเพย์ของ TokType ตรวจว่าสแกน QR ในหน้านี้',
   wrong_amount: 'ยอดในสลิปไม่ตรงกับยอดของรหัสนี้ (ต้องตรงทุกสตางค์) ถ้าโอนไปแล้ว ส่งสลิปทางอีเมล เราคืนเงินหรือเปิด Pro ให้',
   old_slip: 'สลิปนี้โอนก่อนได้รหัสนี้ ใช้สลิปของการโอนตามหน้านี้',
   used: 'สลิปนี้ใช้เปิด Pro ไปแล้ว ใช้ซ้ำไม่ได้',
@@ -1462,12 +1462,12 @@ function priceLine(p) {
 async function buyPage(env, msg = '') {
   const p = await withDB(env.DB, () => priceNow(env.DB));
   const method = payMethod(env);
-  return site('ซื้อ Pro พูดพิมพ์', BUY_CSS + '<h1>พูดพิมพ์ Pro ' + p.amount / 100 + ' บาท จ่ายครั้งเดียว</h1>' + priceLine(p) +
+  return site('ซื้อ Pro TokType', BUY_CSS + '<h1>TokType Pro ' + p.amount / 100 + ' บาท จ่ายครั้งเดียว</h1>' + priceLine(p) +
     (!method ? '<div class="card"><p>ยังไม่เปิดขาย เร็วๆ นี้</p></div>' :
-      '<div class="card"><form method="post" action="/buy"><p><b>อีเมล Google ที่ใช้เข้าสู่ระบบในโปรแกรมพูดพิมพ์</b></p>' +
+      '<div class="card"><form method="post" action="/buy"><p><b>อีเมล Google ที่ใช้เข้าสู่ระบบในโปรแกรม TokType</b></p>' +
       (msg ? '<p style="color:#c0392b">' + esc(msg) + '</p>' : '') +
       '<p><input type="email" name="email" required autocomplete="email" placeholder="you@gmail.com"></p><p><button class="btn" type="submit">ไปหน้าจ่ายเงิน</button></p>' +
-      '<p>ยังไม่เคยใช้พูดพิมพ์? <a href="/">ดาวน์โหลดโปรแกรม</a> แล้วเข้าสู่ระบบด้วย Google ก่อน หรือกด <b>อัปเกรดเป็น Pro</b> ในโปรแกรมได้เลย</p></form></div>' +
+      '<p>ยังไม่เคยใช้ TokType? <a href="/">ดาวน์โหลดโปรแกรม</a> แล้วเข้าสู่ระบบด้วย Google ก่อน หรือกด <b>อัปเกรดเป็น Pro</b> ในโปรแกรมได้เลย</p></form></div>' +
       '<p>จ่ายด้วย' + (method === 'stripe' ? 'พร้อมเพย์หรือบัตร' : 'พร้อมเพย์ (บัตรเครดิตเร็วๆ นี้)') + ' ขอคืนเงินได้ภายใน 7 วัน อ่าน<a href="/terms">ข้อกำหนด</a> ติดต่อ ' + contact(env) + '</p>'));
 }
 
@@ -1480,7 +1480,7 @@ async function buyWeb(req, env, url) {
     'SELECT users.id AS id, users.email AS email, users.provider AS provider, pro.user IS NOT NULL AS pro FROM users LEFT JOIN pro ON pro.user = users.id ' +
     'WHERE users.provider = \'google\' AND lower(users.email) = ?1 ORDER BY users.created LIMIT 1'
   ).bind(email).first());
-  if (!who) return buyPage(env, 'ยังไม่พบบัญชีนี้ในพูดพิมพ์ เปิดโปรแกรมแล้วเข้าสู่ระบบด้วย Google อีเมลนี้ก่อน แล้วกลับมาที่หน้านี้');
+  if (!who) return buyPage(env, 'ยังไม่พบบัญชีนี้ใน TokType เปิดโปรแกรมแล้วเข้าสู่ระบบด้วย Google อีเมลนี้ก่อน แล้วกลับมาที่หน้านี้');
   const r = await startOrder(env, url, who);
   if (r.body.pro) return page('บัญชีนี้เป็น Pro แล้ว', 'พิมพ์ด้วยเสียงได้ไม่จำกัดอยู่แล้ว ไม่ต้องซื้อซ้ำ', 200);
   if (!r.body.url) return page('ยังซื้อไม่ได้ตอนนี้', 'ระบบรับเงินขัดข้องชั่วคราว ลองใหม่อีกครั้งในอีกสักครู่', r.status);
@@ -1489,19 +1489,19 @@ async function buyWeb(req, env, url) {
 
 async function ppPage(url, env) {
   const code = String(url.searchParams.get('c') || '').trim().toUpperCase();
-  if (!/^[A-Z2-9]{6}$/.test(code)) return page('ลิงก์ไม่ถูกต้อง', 'กลับไปที่พูดพิมพ์ แล้วกดอัปเกรดเป็น Pro อีกครั้ง');
+  if (!/^[A-Z2-9]{6}$/.test(code)) return page('ลิงก์ไม่ถูกต้อง', 'กลับไปที่ TokType แล้วกดอัปเกรดเป็น Pro อีกครั้ง');
   const o = await withDB(env.DB, () => env.DB.prepare(
     'SELECT orders.status AS status, orders.amount AS amount, users.email AS email, pro.user IS NOT NULL AS pro FROM orders JOIN users ON users.id = orders.user ' +
     'LEFT JOIN pro ON pro.user = orders.user WHERE orders.id = ?1'
   ).bind('pp_' + code).first());
-  if (!o) return page('ไม่พบรหัสนี้', 'กลับไปที่พูดพิมพ์ แล้วกดอัปเกรดเป็น Pro อีกครั้ง', 404);
+  if (!o) return page('ไม่พบรหัสนี้', 'กลับไปที่ TokType แล้วกดอัปเกรดเป็น Pro อีกครั้ง', 404);
   const who = esc(maskEmail(o.email));
   if (o.pro || o.status === 'paid') {
-    return site('เป็น Pro แล้ว พูดพิมพ์', '<h1>เป็น Pro แล้ว ขอบคุณที่สนับสนุนครับ</h1><p>บัญชี <b>' + who + '</b> พิมพ์ด้วยเสียงได้ไม่จำกัดคำ ใช้ได้ตลอด</p>' +
-      '<p>กลับไปที่พูดพิมพ์แล้วพูดต่อได้เลย โปรแกรมจะเห็น Pro ในการพูดครั้งถัดไป</p>');
+    return site('เป็น Pro แล้ว TokType', '<h1>เป็น Pro แล้ว ขอบคุณที่สนับสนุนครับ</h1><p>บัญชี <b>' + who + '</b> พิมพ์ด้วยเสียงได้ไม่จำกัดคำ ใช้ได้ตลอด</p>' +
+      '<p>กลับไปที่ TokType แล้วพูดต่อได้เลย โปรแกรมจะเห็น Pro ในการพูดครั้งถัดไป</p>');
   }
   const payload = promptpayPayload(env.PROMPTPAY_ID, o.amount);
-  if (!payload || o.status !== 'waiting') return page('รหัสนี้ใช้จ่ายไม่ได้แล้ว', 'กลับไปที่พูดพิมพ์ แล้วกดอัปเกรดเป็น Pro อีกครั้งเพื่อรับรหัสใหม่', 200);
+  if (!payload || o.status !== 'waiting') return page('รหัสนี้ใช้จ่ายไม่ได้แล้ว', 'กลับไปที่ TokType แล้วกดอัปเกรดเป็น Pro อีกครั้งเพื่อรับรหัสใหม่', 200);
   const baht = thb(o.amount);
   const name = payee(env);
   const mail = String(env.CONTACT_EMAIL || '').trim();
@@ -1509,7 +1509,7 @@ async function ppPage(url, env) {
     ? 'mailto:' + mail + '?subject=' + encodeURIComponent('สลิปซื้อ Pro รหัส ' + code) + '&body=' + encodeURIComponent('รหัสอ้างอิง: ' + code + '\nยอด: ' + baht + ' บาท\n(แนบรูปสลิปมากับอีเมลนี้)') : '';
   const line = /^https:\/\/(lin\.ee|line\.me)\/[\w\-./~@%?=]+$/.test(String(env.LINE_OA_URL || '').trim()) ? String(env.LINE_OA_URL).trim() : '';
   const send = [mailto ? '<a class="btn" href="' + esc(mailto) + '">ส่งสลิปทางอีเมล</a>' : '', line ? '<a class="btn" href="' + esc(line) + '">ส่งสลิปทาง LINE</a>' : ''].filter(Boolean).join(' ');
-  return site('จ่ายค่า Pro ด้วยพร้อมเพย์ พูดพิมพ์', BUY_CSS + '<h1>จ่ายค่า Pro ด้วยพร้อมเพย์</h1><p>สำหรับบัญชี <b>' + who + '</b></p>' +
+  return site('จ่ายค่า Pro ด้วยพร้อมเพย์ TokType', BUY_CSS + '<h1>จ่ายค่า Pro ด้วยพร้อมเพย์</h1><p>สำหรับบัญชี <b>' + who + '</b></p>' +
     '<div class="card c">' + qrSVG(payload, 260).replace('<svg ', '<svg class="qr" ') + '<p class="big">' + baht + ' บาท</p><p>โอนให้ตรงทุกสตางค์ เศษสตางค์ไว้จับคู่การโอนกับรหัสนี้ สแกน QR แล้วยอดขึ้นเอง</p>' +
     (name ? '<p>ชื่อบัญชีผู้รับ: <b>' + esc(name) + '</b></p>' : '') + '</div>' +
     '<div class="card c"><p>รหัสอ้างอิงของคุณ</p><p class="code">' + code + '</p></div>' +
@@ -1522,10 +1522,10 @@ async function ppPage(url, env) {
 
 async function paidPage(url, env) {
   const id = url.searchParams.get('s') || '';
-  if (!SESSION_ID.test(id)) return page('ลิงก์ไม่ถูกต้อง', 'กลับไปที่พูดพิมพ์ แล้วกดอัปเกรดเป็น Pro อีกครั้ง');
+  if (!SESSION_ID.test(id)) return page('ลิงก์ไม่ถูกต้อง', 'กลับไปที่ TokType แล้วกดอัปเกรดเป็น Pro อีกครั้ง');
   const find = () => env.DB.prepare('SELECT orders.status AS status, users.email AS email FROM orders JOIN users ON users.id = orders.user WHERE orders.id = ?1').bind(id).first();
   let o = await withDB(env.DB, find);
-  if (!o) return page('ไม่พบรายการนี้', 'กลับไปที่พูดพิมพ์ แล้วกดอัปเกรดเป็น Pro อีกครั้ง', 404);
+  if (!o) return page('ไม่พบรายการนี้', 'กลับไปที่ TokType แล้วกดอัปเกรดเป็น Pro อีกครั้ง', 404);
   if (o.status !== 'paid' && o.status !== 'refunded' && stripeOn(env)) {
     try {
       await settle(env, await stripeAPI(env, 'GET', 'checkout/sessions/' + id));
@@ -1534,14 +1534,14 @@ async function paidPage(url, env) {
   }
   const who = esc(maskEmail(o.email));
   if (o.status === 'paid') {
-    return site('เป็น Pro แล้ว พูดพิมพ์', '<h1>เป็น Pro แล้ว ขอบคุณที่สนับสนุนครับ</h1>' +
+    return site('เป็น Pro แล้ว TokType', '<h1>เป็น Pro แล้ว ขอบคุณที่สนับสนุนครับ</h1>' +
       '<p>บัญชี <b>' + who + '</b> พิมพ์ด้วยเสียงได้ไม่จำกัดคำ ใช้ได้ตลอด ไม่มีรายเดือน</p>' +
-      '<p>ปิดหน้านี้แล้วกลับไปที่พูดพิมพ์ กดคีย์ลัดพูดต่อได้เลย โปรแกรมจะเห็น Pro ในการพูดครั้งถัดไป ใบเสร็จส่งไปทางอีเมลของคุณ</p>' +
+      '<p>ปิดหน้านี้แล้วกลับไปที่ TokType กดคีย์ลัดพูดต่อได้เลย โปรแกรมจะเห็น Pro ในการพูดครั้งถัดไป ใบเสร็จส่งไปทางอีเมลของคุณ</p>' +
       '<p>มีปัญหาติดต่อ ' + contact(env) + '</p>');
   }
-  if (o.status === 'refunded') return page('รายการนี้คืนเงินแล้ว', 'บัญชีนี้กลับเป็นแบบฟรีแล้ว อยากซื้อใหม่กดอัปเกรดในพูดพิมพ์ได้เลย', 200);
-  if (o.status === 'expired') return page('ยังไม่ได้รับเงิน', 'หน้าจ่ายเงินนี้หมดอายุแล้วและยังไม่มีการตัดเงิน กลับไปที่พูดพิมพ์แล้วกดอัปเกรดใหม่อีกครั้ง', 200);
-  return site('กำลังยืนยันการจ่ายเงิน พูดพิมพ์', '<h1>กำลังยืนยันการจ่ายเงิน</h1><p>รอสักครู่ หน้านี้จะรีเฟรชเองทุก 5 วินาที ถ้าจ่ายแล้วแต่ยังขึ้นหน้านี้นานเกิน 10 นาที ติดต่อ ' + contact(env) + '</p>' +
+  if (o.status === 'refunded') return page('รายการนี้คืนเงินแล้ว', 'บัญชีนี้กลับเป็นแบบฟรีแล้ว อยากซื้อใหม่กดอัปเกรดใน TokType ได้เลย', 200);
+  if (o.status === 'expired') return page('ยังไม่ได้รับเงิน', 'หน้าจ่ายเงินนี้หมดอายุแล้วและยังไม่มีการตัดเงิน กลับไปที่ TokType แล้วกดอัปเกรดใหม่อีกครั้ง', 200);
+  return site('กำลังยืนยันการจ่ายเงิน TokType', '<h1>กำลังยืนยันการจ่ายเงิน</h1><p>รอสักครู่ หน้านี้จะรีเฟรชเองทุก 5 วินาที ถ้าจ่ายแล้วแต่ยังขึ้นหน้านี้นานเกิน 10 นาที ติดต่อ ' + contact(env) + '</p>' +
     '<script>setTimeout(function(){location.reload();},5000);</script>');
 }
 
@@ -1617,7 +1617,7 @@ const ADMIN_JS = '(function(){var K="poodpim-admin",key="";try{key=localStorage.
   'function t(ms){return ms?new Date(ms).toLocaleString("th-TH",{dateStyle:"medium",timeStyle:"short"}):"";}' +
   'var ST={waiting:"รอเงินเข้า",paid:"เปิด Pro แล้ว",refunded:"ยกเลิกแล้ว"};' +
   'function msg(s,bad){var m=$("msg");m.textContent=s;m.style.color=bad?"#c0392b":"#2e7d4f";}' +
-  'var ERR={wrong_key:"รหัสผ่านไม่ถูก",busy:"ลองผิดหลายครั้ง รอ 10 นาที",no_code:"ไม่พบรหัสนี้",no_account:"อีเมลนี้ยังไม่เคยเข้าสู่ระบบพูดพิมพ์",bad_request:"พิมพ์รหัส 6 ตัว หรืออีเมล",no_admin:"ยังไม่ได้ตั้ง ADMIN_KEY ใน Cloudflare",locked:"มีคนใส่รหัสผิดหลายครั้ง ล็อกไว้ 1 ชั่วโมง"};' +
+  'var ERR={wrong_key:"รหัสผ่านไม่ถูก",busy:"ลองผิดหลายครั้ง รอ 10 นาที",no_code:"ไม่พบรหัสนี้",no_account:"อีเมลนี้ยังไม่เคยเข้าสู่ระบบ TokType",bad_request:"พิมพ์รหัส 6 ตัว หรืออีเมล",no_admin:"ยังไม่ได้ตั้ง ADMIN_KEY ใน Cloudflare",locked:"มีคนใส่รหัสผิดหลายครั้ง ล็อกไว้ 1 ชั่วโมง"};' +
   'function load(){api({action:"list"}).then(function(j){if(j.error){$("login").hidden=false;$("main").hidden=true;if(key)msg(ERR[j.error]||j.error,true);return;}' +
   'try{localStorage.setItem(K,key);}catch(e){}$("login").hidden=true;$("main").hidden=false;' +
   '$("sum").textContent="ขายแล้ว "+j.sold+" รายการ รวม "+j.total.toLocaleString()+" บาท · ราคาตอนนี้ "+j.price+" บาท"+(j.launch_left>0?" (ราคาเปิดตัวเหลือ "+j.launch_left+" ที่)":"")+" · รับเงินด้วย "+(j.method==="stripe"?"Stripe":j.method==="promptpay"?"พร้อมเพย์เข้าบัญชี "+j.payee:"ยังไม่เปิดขาย")+(j.slip?" · ตรวจสลิปอัตโนมัติ: "+(j.slip.quota==null?"ถาม SlipOK ไม่ได้ ตอนนี้คนซื้อต้องส่งสลิปทางอีเมล":"เหลือ "+j.slip.quota+" สลิปเดือนนี้"):"");' +
@@ -1637,9 +1637,9 @@ const ADMIN_JS = '(function(){var K="poodpim-admin",key="";try{key=localStorage.
 function adminPage(env) {
   if (!adminOn(env)) return page('ยังไม่เปิดหน้าแอดมิน', 'ตั้ง ADMIN_KEY (แบบ Secret ยาวอย่างน้อย 16 ตัว) ใน Cloudflare ก่อน', 503);
   const html = '<!doctype html><html lang="th"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex">' +
-    '<title>แอดมิน พูดพิมพ์</title><style>' + SITE_CSS + '.btn{background:var(--acc);color:var(--card);border:0;border-radius:999px;padding:9px 18px;font:inherit;font-weight:600;margin:6px 8px 0 0;cursor:pointer}' +
+    '<title>แอดมิน TokType</title><style>' + SITE_CSS + '.btn{background:var(--acc);color:var(--card);border:0;border-radius:999px;padding:9px 18px;font:inherit;font-weight:600;margin:6px 8px 0 0;cursor:pointer}' +
     '.btn.ghost{background:transparent;color:var(--acc);border:1px solid var(--acc)}input{font:inherit;padding:9px 12px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--fg);width:100%;max-width:340px}</style></head>' +
-    '<body><div class="w"><h1>แอดมิน พูดพิมพ์</h1><p id="msg" role="status"></p>' +
+    '<body><div class="w"><h1>แอดมิน TokType</h1><p id="msg" role="status"></p>' +
     '<div id="login" class="card"><p>รหัสผ่านแอดมิน (ADMIN_KEY ที่ตั้งใน Cloudflare)</p><p><input id="key" type="password" autocomplete="current-password"></p><button id="go" class="btn">เข้าใช้</button></div>' +
     '<div id="main" hidden><p id="sum"></p><div class="card"><p><b>ก่อนกดเปิด Pro ทุกครั้ง:</b> เปิดแอปธนาคาร เช็กว่ามีเงินเข้าจริงตามยอด อย่าดูแค่สลิป สลิปปลอมทำได้ง่าย</p>' +
     '<p>เปิด Pro จากรหัสอ้างอิง 6 ตัว หรืออีเมล Google ของคนซื้อ</p><p><input id="q" placeholder="เช่น K7M2QX หรือ name@gmail.com"></p><button id="find" class="btn">เปิด Pro</button></div>' +
@@ -1662,7 +1662,7 @@ const CHECK_JS = '(async function(){var list=document.getElementById("list"),sum
   'sum.textContent=bad?"ไม่ผ่าน "+bad+" ข้อ":"ผ่านทุกข้อ";sum.style.color=bad?"#c0392b":"#2e7d4f";})();';
 
 function checkPage() {
-  return site('ตรวจเซิร์ฟเวอร์ พูดพิมพ์', '<h1>ตรวจเซิร์ฟเวอร์</h1><p>หน้านี้ลองเรียกสิ่งที่โปรแกรมพูดพิมพ์ใช้ 6 อย่าง รอสักครู่จนบรรทัดล่างสุดขึ้นผล</p>' +
+  return site('ตรวจเซิร์ฟเวอร์ TokType', '<h1>ตรวจเซิร์ฟเวอร์</h1><p>หน้านี้ลองเรียกสิ่งที่โปรแกรม TokType ใช้ 6 อย่าง รอสักครู่จนบรรทัดล่างสุดขึ้นผล</p>' +
     '<ul id="list" style="overflow-wrap:anywhere"></ul><p id="sum" style="font-size:22px;font-weight:700">กำลังตรวจ...</p><script>' + CHECK_JS + '</script>');
 }
 
@@ -1744,7 +1744,7 @@ async function handle(req, env, ctx) {
   else if (ctx && typeof ctx.waitUntil === 'function') ctx.waitUntil(tidy);
 
   if (route === 'GET /auth/start') {
-    if (tooMany(req, 'start')) return page('กดเข้าสู่ระบบถี่เกินไป', 'รอสักครู่แล้วกดเข้าสู่ระบบในพูดพิมพ์อีกครั้ง', 429);
+    if (tooMany(req, 'start')) return page('กดเข้าสู่ระบบถี่เกินไป', 'รอสักครู่แล้วกดเข้าสู่ระบบใน TokType อีกครั้ง', 429);
     return authStart(url, env);
   }
   if (req.method === 'GET' && path.startsWith('/auth/callback/')) return authCallback(url, env, path.slice('/auth/callback/'.length));
@@ -1768,7 +1768,7 @@ async function handle(req, env, ctx) {
   if (route === 'POST /buy') return tooMany(req, 'buy') ? page('กดถี่เกินไป', 'รอสักครู่แล้วลองใหม่', 429) : buyWeb(req, env, url);
   if (route === 'GET /buy/pp') return ppPage(url, env);
   if (route === 'POST /api/slip') return tooMany(req, 'slip') ? slipReply('busy') : slipCheck(req, env, url);
-  if (route === 'GET /buy/cancel') return page('ยังไม่ได้จ่ายเงิน', 'ยกเลิกแล้ว ไม่มีการตัดเงิน ปิดหน้านี้แล้วกลับไปที่พูดพิมพ์ได้เลย อยากซื้อเมื่อไหร่กดอัปเกรดเป็น Pro ในโปรแกรมอีกครั้ง', 200);
+  if (route === 'GET /buy/cancel') return page('ยังไม่ได้จ่ายเงิน', 'ยกเลิกแล้ว ไม่มีการตัดเงิน ปิดหน้านี้แล้วกลับไปที่ TokType ได้เลย อยากซื้อเมื่อไหร่กดอัปเกรดเป็น Pro ในโปรแกรมอีกครั้ง', 200);
   if (route === 'GET /paid') return paidPage(url, env);
   if (route === 'POST /stripe/webhook') return stripeWebhook(req, env);
   if (route === 'GET /admin') return adminPage(env);
@@ -1782,7 +1782,7 @@ export default {
       return await handle(req, env, ctx);
     } catch (e) {
       const path = new URL(req.url).pathname;
-      return path.startsWith('/auth/') && req.method === 'GET' ? page('เซิร์ฟเวอร์ขัดข้องชั่วคราว', 'รอสักครู่แล้วกดเข้าสู่ระบบในพูดพิมพ์อีกครั้ง', 503) : json({ error: 'server' }, 503);
+      return path.startsWith('/auth/') && req.method === 'GET' ? page('เซิร์ฟเวอร์ขัดข้องชั่วคราว', 'รอสักครู่แล้วกดเข้าสู่ระบบใน TokType อีกครั้ง', 503) : json({ error: 'server' }, 503);
     }
   },
 };
