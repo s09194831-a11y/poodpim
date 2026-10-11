@@ -487,13 +487,25 @@ footer .status{flex-basis:100%;font:12px/1.5 ui-monospace,Consolas,monospace;opa
 </div>
 <p class="plans-note reveal">ทุกฟีเจอร์ใช้ได้ในแบบฟรี Pro เพิ่มแค่ไม่จำกัดจำนวนคำ ราคาอาจเปลี่ยนก่อนเปิดขาย</p>
 </div></section>
+<section class="block" id="spec" style="padding-top:0"><div class="wrap center">
+<div class="kicker reveal">สเปคคอม</div>
+<h2 class="reveal">คอมแบบไหน <em>ใช้ได้</em></h2>
+<p class="sub reveal" style="margin-inline:auto">คอม Windows 10 หรือ 11 ที่เปิดเว็บใน Chrome ได้ไม่อืด ส่วนใหญ่ใช้ได้เลย</p>
+<div class="plans" style="text-align:left">
+<div class="plan reveal"><h3>ขั้นต่ำ</h3><p class="desc">ใช้ได้</p>
+<ul><li>Windows 10 หรือ 11 แบบ 64 บิต</li><li>ซีพียู 2 คอร์ขึ้นไป</li><li>แรม 4 GB</li><li>ที่ว่าง 600 MB ตอนติดตั้ง ติดตั้งเสร็จใช้ราว 200 MB</li><li>ไมค์อะไรก็ได้ ไมค์ในโน้ตบุ๊กก็ได้</li><li>ต่ออินเทอร์เน็ต เน็ตช้าก็ได้</li></ul></div>
+<div class="plan reveal"><h3>แนะนำ</h3><p class="desc">ลื่นที่สุด</p>
+<ul><li>ซีพียู 4 เธรดขึ้นไป เช่น Core i3 หรือ Ryzen 3 ขึ้นไป</li><li>แรม 8 GB ขึ้นไป</li><li>หูฟังมีไมค์ ถ้าที่นั่งเสียงดัง</li></ul></div>
+</div>
+<p class="plans-note reveal">ยังใช้กับ Mac, มือถือ, Chromebook, Windows 7/8 และ Windows 32 บิตไม่ได้<br>คอมรุ่นเก่ามากอาจรอนานขึ้นเล็กน้อยหลังพูดจบ</p>
+</div></section>
 <section class="block" id="faq" style="padding-top:0"><div class="wrap center">
 <div class="kicker reveal">คำถามที่พบบ่อย</div>
 <h2 class="reveal">มีคำถาม <em>ตอบให้ตรงนี้</em></h2>
 <div class="faq" style="text-align:left">
 <details><summary>ใช้กับโปรแกรมไหนได้บ้าง</summary><p>ได้ทุกโปรแกรมที่มีช่องให้พิมพ์ ทั้ง LINE, Facebook, Claude, ChatGPT, Word, Excel, Gmail และทุกเว็บใน Chrome หรือ Edge</p></details>
 <details><summary>ต้องต่ออินเทอร์เน็ตไหม</summary><p>ต้องต่อเน็ตไว้ เพื่อเช็กบัญชีและนับจำนวนคำ แต่เสียงและข้อความถอดในเครื่องคุณ ไม่ถูกส่งขึ้นอินเทอร์เน็ต</p></details>
-<details><summary>คอมแบบไหนใช้ได้</summary><p>Windows 10 หรือ 11 แบบ 64 บิต ที่ว่างราว 300 MB เครื่องทั่วไปถอดเสียงพูด 10 วินาทีเสร็จในไม่ถึง 1 วินาที ตอนนี้ยังไม่มีรุ่น Mac และมือถือ</p></details>
+<details><summary>คอมแบบไหนใช้ได้</summary><p>Windows 10 หรือ 11 แบบ 64 บิต แรม 4 GB ขึ้นไป ที่ว่าง 600 MB ตอนติดตั้ง เครื่องทั่วไปถอดเสียงพูด 10 วินาทีเสร็จในไม่ถึง 1 วินาที ตอนนี้ยังไม่มีรุ่น Mac และมือถือ ดูทั้งหมดที่ <a href="#spec">สเปคคอม</a></p></details>
 <details><summary>ติดตั้งแล้ว Windows ขึ้นหน้าจอสีฟ้าเตือน</summary><p>กด "ข้อมูลเพิ่มเติม" แล้วกด "เรียกใช้อยู่ดี" ขึ้นแบบนี้เพราะโปรแกรมยังไม่ได้ซื้อใบรับรองผู้พัฒนา ไม่ได้แปลว่ามีไวรัส</p></details>
 <details><summary>พูดไทยปนอังกฤษได้ไหม</summary><p>ได้ คำอังกฤษที่คนไทยพูดบ่อยกว่า 600 คำ เช่น meeting, deadline, Excel จะเขียนเป็นตัวอังกฤษให้เอง คำอื่นเพิ่มเองได้ในหน้าคลังคำ</p></details>
 <details><summary>ฟรีจริงไหม ต้องผูกบัตรไหม</summary><p>ฟรีจริง 2,500 คำทุกสัปดาห์ตลอดไป ไม่ต้องผูกบัตร แค่เข้าสู่ระบบด้วยบัญชี Google</p></details>
