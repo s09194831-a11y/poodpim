@@ -150,14 +150,22 @@ function site(title, body) {
   return new Response(html, { headers: { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'no-store' } });
 }
 
+function contactEmails(env) {
+  const out = [];
+  for (const v of [env.CONTACT_EMAIL, env.CONTACT_EMAIL_2]) {
+    const e = String(v || '').trim();
+    if (/^[^\s@<>"']+@[^\s@<>"']+\.[^\s@<>"']+$/.test(e) && !out.some((x) => x.toLowerCase() === e.toLowerCase())) out.push(e);
+  }
+  return out;
+}
+
 function contactEmail(env) {
-  const e = String(env.CONTACT_EMAIL || '').trim();
-  return /^[^\s@<>"']+@[^\s@<>"']+\.[^\s@<>"']+$/.test(e) ? e : '';
+  return contactEmails(env)[0] || '';
 }
 
 function contact(env) {
-  const e = contactEmail(env);
-  return e ? '<a href="mailto:' + esc(e) + '">' + esc(e) + '</a>' : '<b>(ผู้ดูแลยังไม่ได้ใส่อีเมลติดต่อ / contact email not set yet)</b>';
+  const list = contactEmails(env);
+  return list.length ? list.map((e) => '<a href="mailto:' + esc(e) + '">' + esc(e) + '</a>').join(' / ') : '<b>(ผู้ดูแลยังไม่ได้ใส่อีเมลติดต่อ / contact email not set yet)</b>';
 }
 
 const DOWNLOAD = 'https://github.com/s09194831-a11y/poodpim/releases/latest/download/toktype-windows.zip';
@@ -1504,7 +1512,7 @@ async function ppPage(url, env) {
   if (!payload || o.status !== 'waiting') return page('รหัสนี้ใช้จ่ายไม่ได้แล้ว', 'กลับไปที่ TokType แล้วกดอัปเกรดเป็น Pro อีกครั้งเพื่อรับรหัสใหม่', 200);
   const baht = thb(o.amount);
   const name = payee(env);
-  const mail = String(env.CONTACT_EMAIL || '').trim();
+  const mail = contactEmail(env);
   const mailto = /^[^\s@<>"']+@[^\s@<>"']+\.[^\s@<>"']+$/.test(mail)
     ? 'mailto:' + mail + '?subject=' + encodeURIComponent('สลิปซื้อ Pro รหัส ' + code) + '&body=' + encodeURIComponent('รหัสอ้างอิง: ' + code + '\nยอด: ' + baht + ' บาท\n(แนบรูปสลิปมากับอีเมลนี้)') : '';
   const line = /^https:\/\/(lin\.ee|line\.me)\/[\w\-./~@%?=]+$/.test(String(env.LINE_OA_URL || '').trim()) ? String(env.LINE_OA_URL).trim() : '';
